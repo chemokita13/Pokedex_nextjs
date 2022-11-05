@@ -18,6 +18,7 @@ function Pokemon({ pokemonInfo }) {
             </Layout>
         )
     } else {
+
         var arrayVarieties = []
         pokemonInfo.varieties.map((element) => {
             if (element.is_default) {
@@ -26,6 +27,22 @@ function Pokemon({ pokemonInfo }) {
                 arrayVarieties.push(element.pokemon.name)
             }
         })
+
+        // to select the first flavour text in english
+        var flavour = ''
+        var indexOfFlavorText = 0
+        pokemonInfo.flavor_text_entries.map((element, index) => {
+            if (element.language.name == 'en' && index == indexOfFlavorText) {
+                console.log('PREMIO')
+                console.log(element, index)
+                flavour = element
+            } else {
+                indexOfFlavorText++
+            }
+
+
+        })
+        console.log(flavour)
         return (
             <Layout title={'Pokemon: ' + PokemonNumber}>
                 <h1>{pokemonInfo.name}</h1>
@@ -42,7 +59,7 @@ function Pokemon({ pokemonInfo }) {
                         Pokemon number: {PokemonNumber}.
                     </li>
                     <li>
-                        {pokemonInfo.flavor_text_entries[0].flavor_text} ({pokemonInfo.flavor_text_entries[0].version.name}, {pokemonInfo.flavor_text_entries[0].language.name})
+                        {flavour.flavor_text} ({flavour.version.name}, {flavour.language.name})
                     </li>
                     <li>
                         {pokemonInfo.genera.map((element) => {
@@ -60,11 +77,11 @@ function Pokemon({ pokemonInfo }) {
                             ? <li>
                                 Forms:
                                 <ul>
-                                    {arrayVarieties.map((element) => { return <li>{element}</li>})}
+                                    {arrayVarieties.map((element) => { return <li>{element}</li> })}
                                 </ul>
                             </li>
                             :
-                            console.log(arrayVarieties.lenght)
+                            null
                     }
                 </ul>
             </Layout>
