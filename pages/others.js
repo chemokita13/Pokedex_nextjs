@@ -1,11 +1,12 @@
-import Navigation from "../components/nav" // import navigation
+import Layout from "../components/Layout" // General Layout
 
 function Others() {
     return (
-        <div>
-            <Navigation />
-            Others
-        </div>
+        <Layout title='Others'>  
+            <h1>
+                Others
+            </h1>
+        </Layout>
     )
 }
 

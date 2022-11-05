@@ -17,7 +17,7 @@ function Navigation() {
                 <Link href="/others" legacyBehavior>
                     <a>Others</a>
                 </Link>
-            </li>
+            </li> 
         </ul>
     )
 }

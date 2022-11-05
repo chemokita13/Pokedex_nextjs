@@ -1,15 +1,31 @@
-import Navigation from "../components/nav" // import navigation
+import Layout from "../components/Layout" // General Layout
 
+import PokemonInfo from "../components/pokemonInfo"
 
+function Index({ pokedex }) {
 
-
-function Index() {
     return (
-        <div>
-            <Navigation />
-            index
-        </div>
+        <Layout title='Pokedex API'>
+            <h1>Pokedex</h1>
+            <div>
+
+                {
+                    pokedex.pokemon_entries.map((pokemon) => {
+                        return (
+                            <PokemonInfo pokemon={pokemon} />
+                        )
+                    })
+
+                }
+
+            </div>
+        </Layout>
     )
+}
+Index.getInitialProps = async (ctx) => {
+    const res = await fetch('https://pokeapi.co/api/v2/pokedex/1')
+    const json = await res.json()
+    return { pokedex: json }
 }
 
 export default Index
