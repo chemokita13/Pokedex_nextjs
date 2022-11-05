@@ -5,6 +5,7 @@
     font-size: 20px;
 }
 
+/* NAVIGATION */
 .nav-header {
     background-color: #1b3039;
     display: flex;
@@ -12,6 +13,8 @@
     align-items: center;
     height: 85px;
     padding: 5px 10%;
+    position: sticky;
+    top: 0;
 }
 
 .nav-header .nav-logo {
@@ -71,4 +74,63 @@
     background-color: #e2f1f8;
     color: #a3261f;
     transform: scale(1.1);
+}
+
+/* POKEMON LIST ITEM */
+.pokemon-list-container {
+    border: 1px solid #44b0d1;
+    width: 25%;
+    padding: 15px 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e2f1f8;
+}
+
+.pokemon-list-nameandnumber {
+    display: inline-flex;
+    align-items: flex-start;
+    text-transform: capitalize;
+    font-size: 125%;
+    font-weight: 600;
+    cursor: default;
+    text-align-last: auto;
+}
+
+.pokemon-list-number {
+    color: #a32f29;
+    margin-right: 5px;
+    border-radius: 2px solid black;
+}
+
+.pokemon-list-name {
+    text-decoration: underline;
+}
+
+.pokemon-list-name::first-letter {
+    color: #bd231b;
+    font-weight: 1000;
+}
+
+.pokemon-list-moreinfo {
+    color: rgb(61, 61, 61);
+    font-size: 75%;
+}
+
+.pokemon-list-moreinfo:hover{
+    color: #660708;
+    transform: scale(1.5);
+}
+
+.pokemon-list-img:hover{
+    transform:scale(1.7);
+}
+
+.pokemon-list-title {
+    background-color: #44b0d1;
+    padding: 25px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 150%;
+    color: #f7f7f7;
 }

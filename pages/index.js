@@ -6,7 +6,7 @@ function Index({ pokedex }) {
 
     return (
         <Layout title='Pokedex API'>
-            <h1>Pokedex</h1>
+            <h1 className="pokemon-list-title">National pokedex</h1>
             <div>
 
                 {

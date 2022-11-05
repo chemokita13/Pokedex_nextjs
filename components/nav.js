@@ -25,7 +25,7 @@ function Navigation() {
                     </li>
                 </ul>
             </nav>
-            <a href="" className="btn">
+            <a href="https://github.com/chemokita13" className="btn">
                 <button>Github</button>
             </a>
         </header>
