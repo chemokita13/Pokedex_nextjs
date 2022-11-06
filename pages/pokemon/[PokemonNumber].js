@@ -5,9 +5,6 @@ import React from "react"
 
 function Pokemon({ pokemonInfo }) {
 
-    const FemaleImg = React.createRef()
-    const ShinyFemaleImg = React.createRef()
-
     const router = useRouter()
     const { PokemonNumber } = router.query
 
@@ -74,15 +71,13 @@ function Pokemon({ pokemonInfo }) {
 
                     {
                         arrayVarieties[1] // if there is more than 1 form
-                            ?
+                            &&
                             <li>
                                 Forms:
                                 <ul>
                                     {arrayVarieties.map((element) => { return <li>{element}</li> })}
                                 </ul>
                             </li>
-                            :
-                            null
                     }
                 </ul>
             </Layout>

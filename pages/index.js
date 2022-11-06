@@ -10,15 +10,9 @@ function Index({ pokedex }) {
     const [Search, setSearch] = useState('')
 
     //TODO: loading system
-    const [Loading, setLoading] = useState(false)
-
-    useEffect(() => {
-        setLoading(true);
-    }, []);
-
 
     return (
-        <>
+        <div onLoadedData={()=>alert('13')}>
             <Layout title='Pokedex API'>
                 <div className="pokemon-list-title-container" id="pokemon-list-header">
                     <div className="pokemon-list-title">National pokedex</div>
@@ -52,7 +46,7 @@ function Index({ pokedex }) {
                     </button>
                 </a>
             </footer>
-        </>
+        </div>
     )
 }
 Index.getInitialProps = async (ctx) => {
