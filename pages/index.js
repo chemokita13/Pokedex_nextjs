@@ -1,25 +1,58 @@
 import Layout from "../components/Layout" // General Layout
 
 import PokemonInfo from "../components/pokemonInfo"
+import SearchIcon from "../components/search-icon"
+
+import { useEffect, useState } from "react"
 
 function Index({ pokedex }) {
 
+    const [Search, setSearch] = useState('')
+
+    //TODO: loading system
+    const [Loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        setLoading(true);
+    }, []);
+
+
     return (
-        <Layout title='Pokedex API'>
-            <h1 className="pokemon-list-title">National pokedex</h1>
-            <div>
+        <>
+            <Layout title='Pokedex API'>
+                <div className="pokemon-list-title-container" id="pokemon-list-header">
+                    <div className="pokemon-list-title">National pokedex</div>
+                    <div className="search">
+                        <input type="text" placeholder="Search" required onChange={e => setSearch(e.target.value)} />
+                        <div className="search-btn">
+                            <SearchIcon />
+                        </div>
+                    </div>
+                </div>
+                <div>
 
-                {
-                    pokedex.pokemon_entries.map((pokemon) => {
-                        return (
-                            <PokemonInfo pokemon={pokemon} />
-                        )
-                    })
+                    {
+                        pokedex.pokemon_entries.map((pokemon) => {
+                            if (pokemon.entry_number.toString().includes(Search) || pokemon.pokemon_species.name.toLowerCase().includes(Search.toLowerCase())) {
+                                
+                                return (
+                                    <PokemonInfo pokemon={pokemon} />
+                                )
+                            }
+                        })
 
-                }
+                    }
 
-            </div>
-        </Layout>
+                </div>
+            </Layout>
+            <footer className="pokemon-list-footer">
+                <a href="#top" className="footer-btn-a">
+                    <button className="btn pokemon-list-scrollbtn" >
+                        scroll top
+                    </button>
+                </a>
+            </footer>
+        </>
     )
 }
 Index.getInitialProps = async (ctx) => {

@@ -9,6 +9,7 @@ function Layout(props) {
             <Head>
                 <title>{props.title}</title>
             </Head>
+            <div id="top"></div>
             <Navigation />
             <div className="container">
                 {props.children}

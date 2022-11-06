@@ -46,13 +46,13 @@ function Pokemon({ pokemonInfo }) {
         return (
             <Layout title={'Pokemon: ' + PokemonNumber}>
                 <h1>{pokemonInfo.name}</h1>
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${PokemonNumber}.png`} className='PokemonImg' id='NormalImg' />
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${PokemonNumber}.png`} className='PokemonImg' id='NormalImg' alt="" />
 
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${PokemonNumber}.png`} className='PokemonImg' id='ShinyImg' />
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${PokemonNumber}.png`} className='PokemonImg' id='ShinyImg' alt="" />
 
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/${PokemonNumber}.png`} className='PokemonImg' id='FemaleShinyImg' ref={ShinyFemaleImg} /*onEmptied={}*/ />
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/${PokemonNumber}.png`} className='PokemonImg' id='FemaleShinyImg' alt=""/>
 
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/${PokemonNumber}.png`} className='PokemonImg' id='FemaleImg' ref={FemaleImg} /*onEmptied={}*/ />
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/${PokemonNumber}.png`} className='PokemonImg' id='FemaleImg' alt=""/>
 
                 <ul>
                     <li>
@@ -73,8 +73,9 @@ function Pokemon({ pokemonInfo }) {
                     </li>
 
                     {
-                        arrayVarieties[1] // if exits more than 1 form
-                            ? <li>
+                        arrayVarieties[1] // if there is more than 1 form
+                            ?
+                            <li>
                                 Forms:
                                 <ul>
                                     {arrayVarieties.map((element) => { return <li>{element}</li> })}
