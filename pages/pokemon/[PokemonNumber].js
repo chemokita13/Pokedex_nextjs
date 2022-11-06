@@ -42,44 +42,62 @@ function Pokemon({ pokemonInfo }) {
         console.log(flavour)
         return (
             <Layout title={'Pokemon: ' + PokemonNumber}>
-                <h1>{pokemonInfo.name}</h1>
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${PokemonNumber}.png`} className='PokemonImg' id='NormalImg' alt="" />
+                <div className="pokemon-info-container">
+                    <h1 className="pokemon-info-name">{pokemonInfo.name}</h1>
+                    <div className="pokemon-info-imgs">
 
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${PokemonNumber}.png`} className='PokemonImg' id='ShinyImg' alt="" />
+                        <div className="pokemon-info-img-container">
+                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${PokemonNumber}.png`} className='PokemonImg' id='NormalImg' alt="" />
+                            <h3>Normal version</h3>
+                        </div>
+                        <div className="pokemon-info-img-container">
+                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${PokemonNumber}.png`} className='PokemonImg' id='ShinyImg' alt="" />
+                            <h3>Shiny version</h3>
+                        </div>
+                        <div className="pokemon-info-img-container">
+                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/${PokemonNumber}.png`} className='PokemonImg' id='FemaleShinyImg' alt="" />
+                        </div>
+                        <div className="pokemon-info-img-container">
+                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/${PokemonNumber}.png`} className='PokemonImg' id='FemaleImg' alt="" />
+                        </div>
 
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/${PokemonNumber}.png`} className='PokemonImg' id='FemaleShinyImg' alt=""/>
 
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/${PokemonNumber}.png`} className='PokemonImg' id='FemaleImg' alt=""/>
 
-                <ul>
-                    <li>
-                        Pokemon number: {PokemonNumber}.
-                    </li>
-                    <li>
-                        {flavour.flavor_text} ({flavour.version.name}, {flavour.language.name})
-                    </li>
-                    <li>
-                        {pokemonInfo.genera.map((element) => {
-                            if (element.language.name == 'en') {
-                                return (element.genus)
-                            }
-                        })}
-                    </li>
-                    <li>
-                        {pokemonInfo.generation.name}
-                    </li>
 
-                    {
-                        arrayVarieties[1] // if there is more than 1 form
+
+
+
+                    </div>
+                    <ul className="pokemon-info-enumeration">
+                        <li className="pokemon-info-enum-number">
+                            Pokemon number: {PokemonNumber}.
+                        </li>
+                        <li className="pokemon-info-enum-description">
+                            {flavour.flavor_text} ({flavour.version.name}, {flavour.language.name})
+                        </li>
+                        <li className="pokemon-info-enum-genus">
+                            {pokemonInfo.genera.map((element) => {
+                                if (element.language.name == 'en') {
+                                    return (element.genus)
+                                }
+                            })}
+                        </li>
+                        <li className="pokemon-info-enum-generation">
+                            {pokemonInfo.generation.name}
+                        </li>
+
+                        {
+                            arrayVarieties[1] // if there is more than 1 form
                             &&
-                            <li>
+                            <li className="pokemon-info-enum-forms">
                                 Forms:
-                                <ul>
+                                <ul className="pokemon-info-enum-formsenum">
                                     {arrayVarieties.map((element) => { return <li>{element}</li> })}
                                 </ul>
                             </li>
-                    }
-                </ul>
+                        }
+                    </ul>
+                </div>
             </Layout>
         )
     }

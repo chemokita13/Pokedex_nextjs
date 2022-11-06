@@ -12,7 +12,7 @@ function Index({ pokedex }) {
     //TODO: loading system
 
     return (
-        <div onLoadedData={()=>alert('13')}>
+        <div>
             <Layout title='Pokedex API'>
                 <div className="pokemon-list-title-container" id="pokemon-list-header">
                     <div className="pokemon-list-title">National pokedex</div>
@@ -23,7 +23,7 @@ function Index({ pokedex }) {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="pokemon-list-pokecards">
 
                     {
                         pokedex.pokemon_entries.map((pokemon) => {
