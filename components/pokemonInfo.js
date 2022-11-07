@@ -17,5 +17,4 @@ function PokemonInfo({ pokemon }) {
 
 }
 
-
 export default PokemonInfo

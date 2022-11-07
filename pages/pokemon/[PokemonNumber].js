@@ -1,12 +1,14 @@
 import Layout from "../../components/Layout" // General Layout
 
 import { useRouter } from 'next/router'
-import React from "react"
+import React, { useState } from "react"
 
 function Pokemon({ pokemonInfo }) {
 
     const router = useRouter()
     const { PokemonNumber } = router.query
+
+    const [EmpiedImg, setEmpiedImg] = useState('')
 
     if (pokemonInfo == 'error') {
         return (
@@ -30,8 +32,6 @@ function Pokemon({ pokemonInfo }) {
         var indexOfFlavorText = 0
         pokemonInfo.flavor_text_entries.map((element, index) => {
             if (element.language.name == 'en' && index == indexOfFlavorText) {
-                console.log('PREMIO')
-                console.log(element, index)
                 flavour = element
             } else {
                 indexOfFlavorText++
@@ -39,33 +39,55 @@ function Pokemon({ pokemonInfo }) {
 
 
         })
-        console.log(flavour)
         return (
             <Layout title={'Pokemon: ' + PokemonNumber}>
                 <div className="pokemon-info-container">
                     <h1 className="pokemon-info-name">{pokemonInfo.name}</h1>
                     <div className="pokemon-info-imgs">
 
-                        <div className="pokemon-info-img-container">
-                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${PokemonNumber}.png`} className='PokemonImg' id='NormalImg' alt="" />
-                            <h3>Normal version</h3>
+                        <div className="male-imgs">
+                            <div className="pokemon-info-img-container">
+                                <img
+                                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${PokemonNumber}.png`}
+                                    className='PokemonImg'
+                                    id='NormalImg'
+                                    alt=""
+                                />
+                                <h3>Normal version</h3>
+                            </div>
+                            <div className="pokemon-info-img-container">
+                                <img
+                                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${PokemonNumber}.png`}
+                                    className='PokemonImg'
+                                    id='ShinyImg'
+                                    alt=""
+                                />
+                                <h3>Shiny version</h3>
+                            </div>
+                        </div>
+                        
+                        {pokemonInfo.has_gender_differences &&
+                        <div className="female-imgs">
+                        <div className="pokemon-info-img-container" id={EmpiedImg}>
+                            <img
+                                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/${PokemonNumber}.png`}
+                                className='PokemonImg'
+                                id='FemaleShinyImg'
+                                alt=""
+                                onAbort={e => console.error(e)}
+                            />
+                            <h3>Female version</h3>
                         </div>
                         <div className="pokemon-info-img-container">
-                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${PokemonNumber}.png`} className='PokemonImg' id='ShinyImg' alt="" />
-                            <h3>Shiny version</h3>
+                            <img
+                                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/${PokemonNumber}.png`}
+                                className='PokemonImg'
+                                id='FemaleImg'
+                                alt=""
+                            />  
+                            <h3>Female Shiny version</h3>
                         </div>
-                        <div className="pokemon-info-img-container">
-                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/${PokemonNumber}.png`} className='PokemonImg' id='FemaleShinyImg' alt="" />
-                        </div>
-                        <div className="pokemon-info-img-container">
-                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/${PokemonNumber}.png`} className='PokemonImg' id='FemaleImg' alt="" />
-                        </div>
-
-
-
-
-
-
+                    </div>}
 
                     </div>
                     <ul className="pokemon-info-enumeration">
