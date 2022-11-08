@@ -1,7 +1,6 @@
 import Layout from "../../components/Layout" // General Layout
 
 import { useRouter } from 'next/router'
-import React from "react"
 
 function Pokemon({ pokemonInfo }) {
 

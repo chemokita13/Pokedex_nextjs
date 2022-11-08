@@ -5,7 +5,7 @@ import SearchIcon from "../components/search-icon"
 
 import { useEffect, useState } from "react"
 
-function Index({ pokedex }) {
+function Pokedex({ pokedex }) {
 
     const [Search, setSearch] = useState('')
 
@@ -13,7 +13,7 @@ function Index({ pokedex }) {
 
     return (
         <div>
-            <Layout title='Pokedex API'>
+            <Layout title='National Pokedex'>
                 <div className="pokemon-list-title-container" id="pokemon-list-header">
                     <div className="pokemon-list-title">National pokedex</div>
                     <div className="search">
@@ -49,10 +49,10 @@ function Index({ pokedex }) {
         </div>
     )
 }
-Index.getInitialProps = async (ctx) => {
+Pokedex.getInitialProps = async (ctx) => {
     const res = await fetch('https://pokeapi.co/api/v2/pokedex/1')
     const json = await res.json()
     return { pokedex: json }
 }
 
-export default Index
+export default Pokedex

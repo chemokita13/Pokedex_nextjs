@@ -5,6 +5,10 @@
     font-size: 20px;
 }
 
+.container{
+    background-color: #44b0d1;
+}
+
 /** SCROLL DIV */
 
 #top {
@@ -174,7 +178,7 @@
 }
 
 /** SEARCH BUTTON */
-/* TODO: add search mobile support */
+
 svg {
     width: 30px;
     height: 30px;
@@ -184,6 +188,7 @@ svg {
 .search {
     position: absolute;
     padding: 5px;
+
 }
 
 .search input {
@@ -229,6 +234,11 @@ svg {
 }
 
 @media (max-width: 450px){
+    .search{
+        margin-left: 50%;
+        translate: -100px;
+    }
+
     .search input{
         border: 1px solid #c0c0c0;
         background-color: #e2f1f8;
@@ -384,4 +394,40 @@ svg {
 .pokemon-info-enum-formsenum li::first-letter{
     color: #bd231b;
     font-weight: 750
+}
+
+.index-container{
+    background: #44b0d1;
+    min-height: 500px;
+}
+.index-title{
+    text-align: center;
+    padding: 25px;
+    border: 15px solid #a7d9ea;
+    font-size: 150%;
+}
+
+.index-title::first-letter{
+    color: #bd231b;
+    font-weight: 1000;
+}
+
+.general-index-container{
+    margin: 20px;
+    border: 10px solid #a7d9ea;
+}
+
+.index-p1{
+    text-align: center;
+    padding: 25px;
+}
+
+.index-p2{
+    margin-left: 25%;
+    margin-bottom: 25px;
+    background-color: #a3eaff;
+}
+
+.index-p2-title{
+    translate: -30px;
 }

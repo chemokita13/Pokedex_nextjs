@@ -8,21 +8,13 @@ function Navigation() {
             </div>
             <nav>
                 <ul className="nav-links">
+                
                     <li>
                         <Link href="/" legacyBehavior>
-                            <a>Index</a>
+                            <a>Pokedex</a>
                         </Link>
                     </li>
-                    <li>
-                        <Link href="/pokemon" legacyBehavior>
-                            <a>Pokemon</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/others" legacyBehavior>
-                            <a>Others</a>
-                        </Link>
-                    </li>
+                    
                 </ul>
             </nav>
             <a href="https://github.com/chemokita13" className="nav-btn">
