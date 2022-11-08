@@ -318,11 +318,20 @@ svg {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     margin-inline: 5px;
     padding: 10px;
     width: 260px;
     height: 176px;
+}
+
+@media (max-width: 450px){
+    .pokemon-info-imgs {
+        margin:0;
+    }
+    .pokemon-info-img-container{
+        width: 150px;
+        font-size: -50%;
+    }
 }
 
 .pokemon-info-img-container img {
