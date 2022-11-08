@@ -1,14 +1,12 @@
 import Layout from "../../components/Layout" // General Layout
 
 import { useRouter } from 'next/router'
-import React, { useState } from "react"
+import React from "react"
 
 function Pokemon({ pokemonInfo }) {
 
     const router = useRouter()
     const { PokemonNumber } = router.query
-
-    const [EmpiedImg, setEmpiedImg] = useState('')
 
     if (pokemonInfo == 'error') {
         return (
@@ -53,7 +51,7 @@ function Pokemon({ pokemonInfo }) {
                                     id='NormalImg'
                                     alt=""
                                 />
-                                <h3>Normal version</h3>
+                                <h3>{pokemonInfo.has_gender_differences ? 'Male' : 'Male and female'}</h3>
                             </div>
                             <div className="pokemon-info-img-container">
                                 <img
@@ -62,7 +60,7 @@ function Pokemon({ pokemonInfo }) {
                                     id='ShinyImg'
                                     alt=""
                                 />
-                                <h3>Shiny version</h3>
+                                <h3>{pokemonInfo.has_gender_differences ? 'Male Shiny' : 'Male and female Shiny'}</h3>
                             </div>
                         </div>
                         
@@ -76,7 +74,7 @@ function Pokemon({ pokemonInfo }) {
                                 alt=""
                                 onAbort={e => console.error(e)}
                             />
-                            <h3>Female version</h3>
+                            <h3>Female</h3>
                         </div>
                         <div className="pokemon-info-img-container">
                             <img
@@ -85,14 +83,14 @@ function Pokemon({ pokemonInfo }) {
                                 id='FemaleImg'
                                 alt=""
                             />  
-                            <h3>Female Shiny version</h3>
+                            <h3>Female Shiny</h3>
                         </div>
                     </div>}
 
                     </div>
                     <ul className="pokemon-info-enumeration">
                         <li className="pokemon-info-enum-number">
-                            Pokemon number: {PokemonNumber}.
+                            Pokemon number: <div className="pokeNumber">{PokemonNumber}</div>
                         </li>
                         <li className="pokemon-info-enum-description">
                             {flavour.flavor_text} ({flavour.version.name}, {flavour.language.name})
@@ -112,7 +110,7 @@ function Pokemon({ pokemonInfo }) {
                             arrayVarieties[1] // if there is more than 1 form
                             &&
                             <li className="pokemon-info-enum-forms">
-                                Forms:
+                                <div className="forms-title">Forms</div>
                                 <ul className="pokemon-info-enum-formsenum">
                                     {arrayVarieties.map((element) => { return <li>{element}</li> })}
                                 </ul>
